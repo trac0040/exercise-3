@@ -27,7 +27,10 @@
   overflow: visible;
 }
 
-@mixin nav-item($bg-color){
+@mixin nav-item($bg-color, $hover-color){
   background-color: $bg-color;
   color: $text-color;
+  &:hover{
+    background-color: $hover-color;
+  }
 }

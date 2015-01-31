@@ -46,6 +46,7 @@ header {
     list-style-type: none;
     &:first-child a{
       border-top: 1px solid $light-grey;
+      @include nav-item(orange);
     }
     a{
       display: block;

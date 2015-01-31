@@ -26,3 +26,8 @@
   white-space: normal;
   overflow: visible;
 }
+
+@mixin nav-item($bg-color){
+  background-color: $bg-color;
+  color: $text-color;
+}

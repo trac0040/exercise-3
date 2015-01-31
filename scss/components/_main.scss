@@ -22,7 +22,8 @@ body{
   font-family: sans-serif;
   @include zero;
   // Hides close button if there is no js
-  &.noscript .close-btn{
+  &.noscript .close-btn,
+  &.noscript .toggle-btn{
     display: none;
   }
 }
@@ -31,5 +32,96 @@ header {
   padding: 0 1em;
   position: relative;
 }
+
+.toggle-btn{
+  position: absolute;
+  right: 1em;
+  top: 0;
+}
+
+.navigation ul{
+  @include zero;
+  li{
+    list-style-type: none;
+    &:first-child a{
+      border-top: 1px solid $light-grey;
+    }
+    a{
+      display: block;
+      padding: .5em 1em;
+      text-align: center;
+      border-bottom: 1px solid $light-grey;
+      text-decoration: none;
+    }
+  }
+}
+
+.toggle-btn,
+.close-btn{
+  color: $text-color;
+  height: 40px;
+  width: 40px;
+  span{
+    @include hide-text;
+  }
+  i{
+    border: 2px solid $text-color;
+    border-radius: 30px;
+    padding: .4em .3em .3em .3em;
+  }
+}
+
+.close-btn{
+  margin: 1em;
+}
+
+@media only screen and (max-width: 60em){
+  .site-wrapper{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    z-index: 100;
+    .sliding-canvas{
+      width:100%;
+      height:100%;
+      position: relative;
+      transform: translateX(0);
+      @include ease(all, 300ms, ease-in-out);
+    }
+
+    &[data-state="slide-open"] .sliding-canvas{
+      transform: translateX(-100%);
+
+    }
+    &[data-state="slide-open"]{
+      //Allow expansion of navigation past page height when open
+      overflow: visible;
+    }
+    
+  }
+
+  .slide-menu{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    bottom:0;
+    right:-100%;
+    min-height: 600px;
+  }
+}
+
+@media only screen and (min-width: 60em){
+  .toggle-btn
+  .close-btn{
+    display: none;
+  }
+}
+
+body.noscript .slide-menu{
+  position: static;
+  right: auto;
+}
+
 
 

@@ -31,6 +31,7 @@ body{
 header {
   padding: 0 1em;
   position: relative;
+  color: $orange;
 }
 
 .toggle-btn{
@@ -65,9 +66,9 @@ header {
     @include hide-text;
   }
   i{
-    border: 2px solid $text-color;
-    border-radius: 30px;
-    padding: .4em .3em .3em .3em;
+    border: 3px solid $text-color;
+    border-radius: 50px;
+    padding: 11px 8px 9px 8px;
   }
 }
 
